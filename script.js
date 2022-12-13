@@ -1,5 +1,5 @@
-var currentDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
-var currentHour = moment().format('h:mm:ss a');
+var todayDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
+var todayHour = moment().format('h:mm:ss a');
 // Text hour var
 var nineAm = $("#9am");
 var tenAm = $("#10am");
@@ -25,7 +25,7 @@ var interval = setInterval(function() {
   $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' '
                       + momentNow.format('dddd')
                        .substring(0,3).toUpperCase());
-  $('#currentDay').html(currentDate + " " + momentNow.format('hh:mm:ss A'));
+  $('#currentDay').html(todayDate + " " + momentNow.format('hh:mm:ss A'));
 }, 100);
 
 function initPage() {
@@ -67,7 +67,7 @@ function initPage() {
 
 function background () {
       
-  $(".form-control").each(function () {
+  $(".control-group").each(function () {
       var timeTest = parseInt($(this).attr("id"));
       hour = parseInt(hour);
       console.log(timeTest);
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
   // Buttons (save to Local Storage)
   $(".saveBtn").on("click", function(){
-    userInput = $(this).siblings(".form-control").val().trim();
+    userInput = $(this).siblings(".control-group").val().trim();
     console.log(userInput);
     hourSpan = $(this).siblings(".input-group-prepend").text().trim();
     console.log(hourSpan);
